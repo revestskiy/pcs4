@@ -8,11 +8,15 @@ class ProfilePage extends StatefulWidget {
 }
 
 class ProfilePageState extends State<ProfilePage> {
-  final TextEditingController _nameController = TextEditingController(text: 'Ярослав Жидков');
-  final TextEditingController _emailController = TextEditingController(text: 'zhidkov.y.n@edu.mirea.ru');
-  final TextEditingController _phoneController = TextEditingController(text: '+7(916) 807-01-00');
-  String avatarUrl = 'https://avatars.githubusercontent.com/u/119223289?v=4';
-  bool _isEditing = false;  // Флаг для переключения режима редактирования
+  final TextEditingController _nameController =
+      TextEditingController(text: 'Биличенко Андрей');
+  final TextEditingController _emailController =
+      TextEditingController(text: 'support@yandex.ru');
+  final TextEditingController _phoneController =
+      TextEditingController(text: '+7(916) 807-01-01');
+  String avatarUrl =
+      'https://avatars.githubusercontent.com/u/137896160?s=400&v=4';
+  bool _isEditing = false; // Флаг для переключения режима редактирования
 
   @override
   Widget build(BuildContext context) {
@@ -32,7 +36,7 @@ class ProfilePageState extends State<ProfilePage> {
             icon: const Icon(Icons.edit),
             onPressed: () {
               setState(() {
-                _isEditing = !_isEditing;  // Переключаем режим редактирования
+                _isEditing = !_isEditing; // Переключаем режим редактирования
               });
             },
           ),
@@ -60,7 +64,7 @@ class ProfilePageState extends State<ProfilePage> {
                 labelText: 'Имя и фамилия',
                 border: OutlineInputBorder(),
               ),
-              enabled: _isEditing,  // Только в режиме редактирования
+              enabled: _isEditing, // Только в режиме редактирования
             ),
             const SizedBox(height: 10),
             // Поле для электронной почты
@@ -70,7 +74,7 @@ class ProfilePageState extends State<ProfilePage> {
                 labelText: 'Электронная почта',
                 border: OutlineInputBorder(),
               ),
-              enabled: _isEditing,  // Только в режиме редактирования
+              enabled: _isEditing, // Только в режиме редактирования
             ),
             const SizedBox(height: 10),
             // Поле для телефона
@@ -80,7 +84,7 @@ class ProfilePageState extends State<ProfilePage> {
                 labelText: 'Телефон',
                 border: OutlineInputBorder(),
               ),
-              enabled: _isEditing,  // Только в режиме редактирования
+              enabled: _isEditing, // Только в режиме редактирования
             ),
             const SizedBox(height: 20),
 
@@ -89,30 +93,33 @@ class ProfilePageState extends State<ProfilePage> {
               Padding(
                 padding: const EdgeInsets.symmetric(vertical: 20),
                 child: SizedBox(
-                  width: double.infinity,  // Кнопка будет занимать всю ширину
+                  width: double.infinity, // Кнопка будет занимать всю ширину
                   child: ElevatedButton(
                     onPressed: () {
                       // Логика сохранения данных
                       ScaffoldMessenger.of(context).showSnackBar(
-                        const SnackBar(content: Text("Изменения успешно сохранены!")),
+                        const SnackBar(
+                            content: Text("Изменения успешно сохранены!")),
                       );
                       setState(() {
-                        _isEditing = false;  // Выключаем режим редактирования после сохранения
+                        _isEditing =
+                            false; // Выключаем режим редактирования после сохранения
                       });
                     },
                     style: ElevatedButton.styleFrom(
                       padding: const EdgeInsets.symmetric(vertical: 14.0),
                       backgroundColor: Colors.green,
                       textStyle: const TextStyle(
-                        fontSize: 20,  // Увеличиваем размер шрифта до 20
-                        fontWeight: FontWeight.bold,  // Жирный шрифт
+                        fontSize: 20, // Увеличиваем размер шрифта до 20
+                        fontWeight: FontWeight.bold, // Жирный шрифт
                       ),
-                      minimumSize: const Size(double.infinity, 48), // Занимает всю ширину экрана
+                      minimumSize: const Size(
+                          double.infinity, 48), // Занимает всю ширину экрана
                     ),
                     child: const Text(
                       'Сохранить изменения',
                       style: TextStyle(
-                        color: Colors.black,  // Цвет шрифта черный
+                        color: Colors.black, // Цвет шрифта черный
                       ),
                     ),
                   ),
